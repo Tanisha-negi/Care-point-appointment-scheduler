@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 Not Found | CarePoint</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Verdana', sans-serif;
+    background-color: #f0f8ff; /* subtle light blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #1f2937;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .error-container {
+    max-width: 600px;
+  }
+
+  .error-container img {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 4rem;
+    color: #2563EB; /* primary blue */
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #2563EB;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  a:hover {
+    background-color: #1E40AF;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 3rem;
+    }
+    .error-container img {
+      max-width: 200px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="error-container">
+    <img src="/static/images/404.png" alt="404 Error">
+    <h1>404</h1>
+    <p>Oops! The page you are looking for cannot be found.</p>
+    <a href="/">Go Back Home</a>
+  </div>
+</body>
+</html>

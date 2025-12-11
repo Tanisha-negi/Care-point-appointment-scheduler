@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Linking Google font for arrow icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward_ios"
+    />
+
+    <!-- Linking Swiperjs Script -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+
+    <!-- Linking CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <!-- Linking Font Awesome CDN font here -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <!-- Linking owl-carousel  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <title>CarePoint</title>
+  </head>
+
+  <body>
+    
+    <!-------------------------
+    Navigation bar section
+    -------------------------->
+    <header>
+
+      <a href="{{ url_for('routes.home') }}" class="logo">Care<span>Point</span></a>
+
+      <div class="search-container">
+        <input
+          type="search"
+          id="search"
+          placeholder="Search for Speciality"
+          autocomplete="off"
+        />
+        <ul id="suggestions" class="suggestion-list"></ul>
+      </div>
+
+      <nav class="navbar">
+        <a href="{{ url_for('doctors_bp.show_doctors') }}">Doctors</a>
+        <a href="{{ url_for('routes.about') }}">About us</a>
+        <a href="{{ url_for('routes.faq') }}">FAQ</a>
+        <a href="{{ url_for('routes.contact') }}">Contact Us</a>
+      </nav>
+
+        <div class="button">
+          {% if current_user.is_authenticated %}
+          <div class="user-menu">
+            <span class="username">{{ current_user.name }}<i class="fa-solid fa-angle-down dropdown-arrow"></i></span>
+            <div class="dropdown">
+            <ul>
+              <li>
+                <a href="{{ url_for('routes.profile') }}"><i class="fa-solid fa-user fa-icon"></i>Profile</a>
+              </li>
+            </ul>
+            <hr>
+            <ul>
+              <li>
+                <a href="{{ url_for('routes.appointments') }}"><i class="fa-regular fa-calendar-check fa-icon"></i>My Appointments</a>
+              </li>
+            </ul>
+            <hr>
+            <ul>
+              <li>
+                <a href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket fa-icon"></i>Logout</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+          {% else %}
+          <a href="{{ url_for('auth.login') }}" class="login-signup">Login/Signup</a>
+          {% endif %}
+        </div>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </header> 
+
+
+    <!------------------------
+     Flash message
+    ------------------------->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-container">
+          {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-----------------------
+     Page content
+    ------------------------>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+
+    <!-----------------------
+     Footer section
+    ------------------------>
+    <footer>
+      <div class="container">
+        <div class="sec footer-about">
+          <h2>Care<span>Point</span></h2>
+        <p>With expert doctors across multiple specialties, modern facilities, and a patient-first approach, we ensure your well-being is always our top priority. Because true care goes beyond treatment — it’s about trust, comfort, and healing.</p>
+        <ul class="sci">
+          <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i> </a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+        </div>
+        <div class="sec quicklinks">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="{{ url_for('routes.home') }}">Home</a></li>
+            <li><a href="{{ url_for('routes.about') }}">About Us</a></li>
+            <li><a href="{{ url_for('doctors_bp.show_doctors') }}">Meet Our Doctors</a></li>
+            <li><a href="{{ url_for('routes.book_appointment') }}">Book an Appointment</a></li>
+            <li><a href="{{ url_for('routes.services') }}">Services</a></li>
+            <li><a href="{{ url_for('routes.faq') }}">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="sec quicklinks">
+          <h2>Our Specialities</h2>
+          <ul>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='General Physician') }}">General Medicine</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Gynecologist') }}">Gynecology / Obstetrics</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Pediatrician') }}">Pediatrics</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Orthopedic Surgeon') }}">Orthopedics</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Cardiologist') }}">Cardiology</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Dermatologist') }}">Dermatology</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='ENT Specialist') }}">ENT (Otolaryngology)</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Dentist') }}">Dentistry</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Pulmonologist') }}">Pulmonology</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Ophthalmologist') }}">Ophthalmology</a></li>
+            <li><a href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Psychiatrist') }}">Psychiatry</a></li>
+            
+          </ul>
+        </div>
+        <div class="sec contact">
+          <h2>Contact Us</h2>
+          <ul class="info">
+            <li>
+              <span><i class="fa-solid fa-location-dot"></i></i></span>
+              <span>123 Health Avenue, Green Park <br>New Delhi – 110016, India</span>
+            </li>
+            <li>
+              <span><i class="fa-solid fa-phone"></i></i></span>
+              <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            </li>
+            <li>
+              <span><i class="fa-solid fa-envelope"></i></span>
+              <p><a href="mailto:info@carepoint.com">info@carepoint.com</a></p>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      <br>
+      <hr>
+      <div class="copyrightText">
+      <p>Copyright © 2025 CarePoint. All rights reserved.</p>
+    </div>
+    </footer>
+    
+
+
+     <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Linking Owl Carousel script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Your custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+  </body>
+</html>

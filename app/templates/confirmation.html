@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Confirmation | CarePoint{% endblock
+%} {% block content %}
+
+<section class="confirmation">
+  <div class="confirmation-box">
+    <h1>✅ Appointment Confirmed!</h1>
+    <p>
+      Thank you for booking your appointment with
+      <strong>CarePoint Hospital</strong>.
+    </p>
+
+    <div class="confirmation-doctor-details">
+      <p><strong>Doctor:</strong> {{ appointment.doctor.name }} ({{ appointment.doctor.speciality }})</p>
+      <p><strong>Date:</strong> {{ appointment.date.strftime('%A, %d %B %Y') }}</p>
+      <p><strong>Time:</strong> {{ appointment.time.strftime('%I:%M %p') }}</p>
+      <p><strong>Appointment Fee:</strong> ₹{{ appointment.doctor.fee }}</p>
+      <p><strong>Location:</strong> CarePoint Hospital, New Delhi</p>
+    </div>
+
+    <a href="{{ url_for('routes.home') }}" class="confirmation-btn">Back to Home</a>
+
+  </div>
+</section>
+
+{% endblock %}

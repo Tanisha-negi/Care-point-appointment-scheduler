@@ -1,0 +1,755 @@
+{% extends "base.html" %} {% block title %}Home | CarePoint{% endblock %} {%
+block content %}
+
+<style>
+  .service-card:nth-child(1):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/general-consultation.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(2):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/doctors.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(3):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/emergency.avif') }}");
+      background-size: cover;
+  }
+
+  .service-card:nth-child(4):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/surgery.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(5):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/diagnostics.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(6):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/pharmacy.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(7):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/vaccination.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(8):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/maternity-care.webp') }}");
+    background-size: cover;
+  }
+</style>
+
+
+<!----------------------
+ Hero section
+------------------------->
+
+<section class="home" id="home" >
+  <div class="content">
+    <span>Your Health Our Priority </span>
+    <p>
+      We strive to create environments where patients feel supported, families
+      feel reassured, and every interaction reflects dignity, empathy, and
+      trust. Because true healing begins with how we care.
+    </p>
+
+    <a href="{{ url_for('routes.book_appointment') }}" class="appoinment-button"
+      >Make an appointment</a
+    >
+  </div>
+</section>
+
+<!----------------------
+ Specialties section
+------------------------->
+
+<section class="specialties-section">
+  <h2 class="specialties-heading">Expert Care in Every Field</h2>
+  <p>Find experienced doctors across all specialties</p>
+  <!-- <div class="container swiper"> -->
+  <div
+    class="container specialties-container card-wrapper specialties-swiper swiper"
+  >
+    <ul class="card-list swiper-wrapper">
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='General Physician') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/general-medicine.avif') }}"
+            alt="General medicine image"
+            class="card-image"
+          />
+          <p class="badge">General medicine</p>
+          <h class="card-title"
+            >Comprehensive care for common illnesses and preventive health.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Gynecologist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Gynecology.avif') }}"
+            alt="Gynecology / Obstetrics image"
+            class="card-image"
+          />
+          <p class="badge">Gynecology / Obstetrics</p>
+          <h class="card-title"
+            >Women’s health, pregnancy, and reproductive care.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Pediatrician') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/pediatric.avif') }}"
+            alt="Pediatrics image"
+            class="card-image"
+          />
+          <p class="badge">Pediatrics</p>
+          <h class="card-title"
+            >Specialized care for infants, children, and adolescents.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Orthopedic Surgeon') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Orthopedics.jpg') }}"
+            alt="Orthopedics image"
+            class="card-image"
+          />
+          <p class="badge">Orthopedics</p>
+          <h class="card-title"
+            >Bone, joint, and muscle treatments for injuries and disorders.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Cardiologist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Cardiology.webp') }}"
+            alt="Cardiology image"
+            class="card-image"
+          />
+          <p class="badge">Cardiology</p>
+          <h class="card-title"
+            >Diagnosis and treatment of heart and vascular conditions.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Dermatologist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Dermatology.webp') }}"
+            alt="Dermatology image"
+            class="card-image"
+          />
+          <p class="badge">Dermatology</p>
+          <h class="card-title"
+            >Skin, hair, and nail care for all age groups.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='ENT Specialist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/ENT.webp') }}"
+            alt="- ENT (Otolaryngology) image"
+            class="card-image"
+          />
+          <p class="badge">ENT (Otolaryngology)</p>
+          <h class="card-title"
+            >Ear, nose, throat, and related head & neck treatments.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Dentist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Dentist.jpg') }}"
+            alt="Dentist image"
+            class="card-image"
+          />
+          <p class="badge">Dentistry</p>
+          <h class="card-title"
+            >Complete oral health, preventive, and cosmetic dental care.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Pulmonologist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Pulmonology.jpg') }}"
+            alt="Pulmonology image"
+            class="card-image"
+          />
+          <p class="badge">Pulmonology</p>
+          <h class="card-title"
+            >Diagnosis and management of lung and respiratory disorders.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Ophthalmologist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Ophthalmology.webp') }}"
+            alt="Ophthalmology image"
+            class="card-image"
+          />
+          <p class="badge">Ophthalmology</p>
+          <h class="card-title"
+            >Eye care, vision correction, and surgical treatments.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+
+      <li class="card-item swiper-slide">
+        <a
+          href="{{ url_for('doctors_bp.doctors_by_speciality', speciality='Psychiatrist') }}"
+          class="card-link"
+        >
+          <img
+            src="{{ url_for('static', filename='images/Psychiatry.webp') }}"
+            alt="Psychiatry image"
+            class="card-image"
+          />
+          <p class="badge">Psychiatry</p>
+          <h class="card-title"
+            >Mental health support, therapy, and medication management.</h
+          >
+          <!-- <button class="card-button material-symbols-rounded">
+                arrow_forward_ios
+              </button> -->
+        </a>
+      </li>
+    </ul>
+
+    <div class="swiper-pagination specialties-pagination"></div>
+
+    <div class="swiper-slide-button swiper-button-prev specialties-prev"></div>
+    <div class="swiper-slide-button swiper-button-next specialties-next"></div>
+  </div>
+  <!-- </div> -->
+</section>
+
+<!----------------------
+ About section
+------------------------->
+<section class="about-section">
+  <img
+    src="{{ url_for('static', filename='images/about.avif') }}"
+    alt="About Us"
+    class="about-image"
+  />
+  <div class="about-content">
+    <h2>Why to choose us</h2>
+    <p>
+      At CarePoint, we believe healthcare is not just about treating illnesses —
+      it’s about caring for people. Our team of skilled doctors, nurses, and
+      staff is committed to creating an environment where patients feel safe,
+      respected, and valued. With state-of-the-art facilities and a
+      patient-first approach, we provide comprehensive medical services across
+      multiple specialties. Whether it’s preventive care, emergency support, or
+      long-term treatment, we strive to deliver healthcare that is
+      compassionate, reliable, and focused on your well-being.
+    </p>
+    <a href="{{ url_for('routes.about') }}">
+      <button class="know-more">Know More</button>
+    </a>
+  </div>
+</section>
+
+<!----------------------
+ Services section
+------------------------->
+
+<section class="services-section" >
+  <div class="services-heading" style="--hover-bg: url('{{ url_for('static', filename='images/specialist.avif') }}');">
+    <h1>Our Services</h1>
+    <p class="intro">
+      At CarePoint, we provide a wide range of healthcare services designed to
+      meet the needs of patients and families with compassion and excellence.
+    </p>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="services-cards">
+    <div class="service-card">
+      <i class="fa-solid fa-stethoscope"></i>
+      <h3>General Consultation</h3>
+      <p>
+        Comprehensive check-ups and expert advice to maintain your overall
+        health and well-being.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-user-nurse"></i>
+      <h3>Specialist Doctors</h3>
+      <p>
+        Access to experienced specialists across cardiology, neurology,
+        pediatrics, gynecology, and more.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-truck-medical"></i>
+      <h3>Emergency Care</h3>
+      <p>
+        24/7 emergency services with highly trained doctors and nurses ready to
+        act instantly.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-bed-pulse"></i>
+      <h3>Surgery & Operations</h3>
+      <p>
+        State-of-the-art operation theatres equipped for general and advanced
+        surgeries.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-microscope"></i>
+      <h3>Diagnostics & Imaging</h3>
+      <p>
+        Advanced facilities for X-ray, MRI, CT scans, ultrasound, and other
+        diagnostic tests.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-house-medical"></i>
+      <h3>Pharmacy</h3>
+      <p>
+        Fully stocked in-house pharmacy providing prescribed medicines at
+        affordable rates.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-syringe"></i>
+      <h3>Vaccinations</h3>
+      <p>
+        Routine and special vaccinations for children, adults, and travel
+        purposes.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <i class="fa-solid fa-person-breastfeeding"></i>
+      <h3>Maternity Care</h3>
+      <p>
+        Comprehensive prenatal and postnatal care with modern delivery
+        facilities.
+      </p>
+    </div>
+  </div>
+
+</section>
+<hr class="half-line">
+
+
+<!----------------------
+ Testimonial section
+------------------------->
+<div class="testimonial-section">
+  <div class="testimonial-header">
+    <h1>What our clients have to say</h1>
+  </div>
+
+  <div class="owl-carousel owl-theme testimonial-container">
+
+    <!-- item 1 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          The doctors here are extremely professional and attentive. I felt well
+          taken care of from start to finish.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/female-user.jpg') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Ritika Sharma</span>
+          <span>School Teacher</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 2 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          The platform is very user-friendly. Scheduling and tracking appointments is simple.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/male-user.avif') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Aman Verma</span>
+          <span>Grocery Store Manager</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 3 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          The staff is incredibly friendly and professional. I always feel comfortable and well cared for during my visits.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/female-user3.jpg') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Sneha Pillai</span>
+          <span>Freelance Illustrator</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 4 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          Booking an appointment online was super easy, and the doctor explained everything clearly. Highly recommend.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/male-user2.avif') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Rohit Das</span>
+          <span>Delivery Executive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 5 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          The hospital is clean, organized, and the doctors take the time to listen. I felt genuinely cared for.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/female-user2.jpg') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Meena Joshi</span>
+          <span>Tailor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 6 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          Excellent service from reception to consultation. My health concerns were addressed promptly.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/user1.jpg') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Ravi Kumar</span>
+          <span>Software Developer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 7 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+          Very happy with the care and professionalism. The team made a stressful experience feel simple and reassuring.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/female-user3.jpg') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Priya Nair</span>
+          <span>Receptionist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- item 8 start -->
+    <div class="item testimonial-card">
+      <main class="testimonial-card-body">
+        <div class="quote-left">
+          <i class="fa fa-quote-left"></i>
+        </div>
+        <p>
+           Excellent care! Friendly staff, experienced doctors, clean facilities, and attentive service made my visit comfortable and reassuring.
+        </p>
+        <div class="ratings">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="quote-right">
+          <i class="fa fa-quote-right"></i>
+        </div>
+      </main>
+      <div class="testimonial-profile">
+        <div class="testimonial-image">
+          <img
+            src="{{ url_for('static', filename='images/male-user3.avif') }}"
+            alt=""
+          />
+        </div>
+        <div class="testimonial-details">
+          <span>Kunal Bhatia</span>
+          <span>Café Barista</span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}

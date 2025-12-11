@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Edit Profile | CarePoint{% endblock %}
+{% block content %}
+
+<div class="profile-form">
+  <h2>Edit Profile</h2>
+  <form method="POST" action="{{ url_for('routes.edit_profile') }}">
+    
+    <!-- First & Last Name -->
+    <div class="half-row">
+      <div>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="first_name" value="{{ user.first_name or '' }}" placeholder="First Name">
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="last_name" value="{{ user.last_name or '' }}" placeholder="Last Name">
+      </div>
+    </div>
+
+    <!-- DOB & Gender -->
+    <div class="half-row">
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" value="{{ user.dob or '' }}">
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="">Select Gender</option>
+          <option value="Male" {{ 'selected' if user.gender == 'Male' else '' }}>Male</option>
+          <option value="Female" {{ 'selected' if user.gender == 'Female' else '' }}>Female</option>
+          <option value="Other" {{ 'selected' if user.gender == 'Other' else '' }}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Blood Type & Phone -->
+    <div class="half-row">
+      <div>
+        <label for="bloodType">Blood Type</label>
+        <select id="bloodType" name="blood_type">
+          <option value="">Select Blood Type</option>
+          <option value="A+" {{ 'selected' if user.blood_type == 'A+' else '' }}>A+</option>
+          <option value="A-" {{ 'selected' if user.blood_type == 'A-' else '' }}>A-</option>
+          <option value="B+" {{ 'selected' if user.blood_type == 'B+' else '' }}>B+</option>
+          <option value="B-" {{ 'selected' if user.blood_type == 'B-' else '' }}>B-</option>
+          <option value="O+" {{ 'selected' if user.blood_type == 'O+' else '' }}>O+</option>
+          <option value="O-" {{ 'selected' if user.blood_type == 'O-' else '' }}>O-</option>
+          <option value="AB+" {{ 'selected' if user.blood_type == 'AB+' else '' }}>AB+</option>
+          <option value="AB-" {{ 'selected' if user.blood_type == 'AB-' else '' }}>AB-</option>
+        </select>
+      </div>
+      <div>
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone" value="{{ user.phone or '' }}" placeholder="+91 98765 43210">
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="address-line">
+      <label for="address1">Address Line 1</label>
+      <input type="text" id="address1" name="address1" value="{{ user.address1 or '' }}" placeholder="Address Line 1">
+      
+      <label for="address2">Address Line 2</label>
+      <input type="text" id="address2" name="address2" value="{{ user.address2 or '' }}" placeholder="Address Line 2">
+    </div>
+
+    <!-- Email -->
+    <!-- Email Section -->
+    <div class="email-block">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="{{ user.email }}" readonly>
+    </div>
+
+    <!-- Save Button -->
+    <div class="button-container">
+      <button type="submit" class="save-btn">Save Changes</button>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}

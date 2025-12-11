@@ -1,0 +1,149 @@
+{% extends "base.html" %} 
+{% block title %}Services | CarePoint{% endblock %} {%
+block content %}
+
+<style>
+  .service-card:nth-child(1):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/general-consultation.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(2):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/doctors.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(3):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/emergency.avif') }}");
+      background-size: cover;
+  }
+
+  .service-card:nth-child(4):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/surgery.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(5):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/diagnostics.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(6):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/pharmacy.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(7):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/vaccination.avif') }}");
+    background-size: cover;
+  }
+
+  .service-card:nth-child(8):hover {
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.7) 0%,
+        rgba(135, 206, 250, 0.7) 100%
+      ),
+      url("{{ url_for('static', filename='images/maternity-care.webp') }}");
+    background-size: cover;
+  }
+</style>
+
+<section class="services-section">
+  <div class="services-heading">
+    <h1>Our Services</h1>
+    <hr class="underline">
+    <p class="intro">
+      At CarePoint, we provide a wide range of healthcare services designed to
+      meet the needs of patients and families with compassion and excellence.
+    </p>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="services-cards">
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/general.avif') }}');">
+    <i class="fa-solid fa-stethoscope"></i>
+    <h3>General Consultation</h3>
+    <p>Comprehensive check-ups and expert advice to maintain your overall health and well-being.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/specialist.avif') }}');">
+    <i class="fa-solid fa-user-nurse"></i>
+    <h3>Specialist Doctors</h3>
+    <p>Access to experienced specialists across cardiology, neurology, pediatrics, gynecology, and more.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/emergency.avif') }}');">
+    <i class="fa-solid fa-truck-medical"></i>
+    <h3>Emergency Care</h3>
+    <p>24/7 emergency services with highly trained doctors and nurses ready to act instantly.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/surgery.avif') }}');">
+    <i class="fa-solid fa-bed-pulse"></i>
+    <h3>Surgery & Operations</h3>
+    <p>State-of-the-art operation theatres equipped for general and advanced surgeries.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/diagnostics.avif') }}');">
+    <i class="fa-solid fa-microscope"></i>
+    <h3>Diagnostics & Imaging</h3>
+    <p>Advanced facilities for X-ray, MRI, CT scans, ultrasound, and other diagnostic tests.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/pharmacy.avif') }}');">
+    <i class="fa-solid fa-house-medical"></i>
+    <h3>Pharmacy</h3>
+    <p>Fully stocked in-house pharmacy providing prescribed medicines at affordable rates.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/vaccination.avif') }}');">
+    <i class="fa-solid fa-syringe"></i>
+    <h3>Vaccinations</h3>
+    <p>Routine and special vaccinations for children, adults, and travel purposes.</p>
+  </div>
+
+  <div class="service-card" style="--hover-bg: url('{{ url_for('static', filename='images/maternity-care.webp') }}');">
+    <i class="fa-solid fa-person-breastfeeding"></i>
+    <h3>Maternity Care</h3>
+    <p>Comprehensive prenatal and postnatal care with modern delivery facilities.</p>
+  </div>
+</div>
+
+
+{% endblock %}

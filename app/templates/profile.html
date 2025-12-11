@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Profile | CarePoint{% endblock %}
+{% block content %}
+
+<section class="Profile">
+  <div class="profile-container">
+    <h2>Your Profile</h2>
+
+    <div class="profile-details">
+
+      <!-- Name -->
+      <div class="row">
+        <div class="detail-group">
+          <label>First Name</label>
+          <p>{{ user.first_name or '' }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Last Name</label>
+          <p>{{ user.last_name or '' }}</p>
+        </div>
+      </div>
+
+      <!-- Gender, DOB, Blood Type -->
+      <div class="row">
+        <div class="detail-group">
+          <label>Gender</label>
+          <p>{{ user.gender or '' }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Date of Birth</label>
+          <p>{{ user.dob or '' }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Blood Type</label>
+          <p>{{ user.blood_type or '' }}</p>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="row">
+        <div class="detail-group full-width">
+          <label>Address Line 1</label>
+          <p>{{ user.address1 or '' }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="detail-group full-width">
+          <label>Address Line 2</label>
+          <p>{{ user.address2 or '' }}</p>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="row">
+        <div class="detail-group">
+          <label>Contact Number</label>
+          <p>{{ user.phone or '' }}</p>
+        </div>
+        <div class="detail-group">
+          <label>Email</label>
+          <p>{{ user.email }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Edit Button -->
+    <div class="row button-row">
+      <a href="{{ url_for('routes.edit_profile') }}" class="edit-btn">Edit Profile</a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

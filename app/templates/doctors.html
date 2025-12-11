@@ -1,0 +1,31 @@
+<!-- templates/doctors.html -->
+<!-- This file should be placed inside a 'templates' folder. -->
+
+{% extends "base.html" %} 
+
+{% block title %}Doctors | CarePoint{% endblock %} 
+
+{% block content %}
+<section class="doctors">
+    <div class="doctors-heading">
+    <h1>Meet Our Doctors</h1>
+    <hr class="underline">
+    <p>Highly qualified specialists ready to care for you.</p>
+    </div>
+
+    <div class="doctors-grid">
+        <!-- Loop through each doctor in the 'doctors' list passed from the backend -->
+        {% for doctor in doctors %}
+        <div class="doctor-card">
+            <img src="{{ doctor.image_url }}" alt="{{ doctor.name }}" />
+            <h3 class="doctor-name">{{ doctor.name }}</h3>
+            <p class="doctor-p">{{ doctor.speciality }}</p>
+            <!-- New: Display the doctor's experience as an integer -->
+            <p class="doctor-p">{{ doctor.experience }}+ years experience</p>
+            <a href="{{ url_for('routes.book_doctor', doctor_id=doctor.id) }}" class="btn">Book Appointment</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

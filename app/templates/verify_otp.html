@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify OTP | CarePoint</title>
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/css/auth.css" />
+
+    <style>
+      /* Importing Google Poppins Font */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      /* 
+      :root {
+        --primary-color: #0d1936;
+        --secondary-color: #535354;
+        --background-color: #efefef;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --white-color: #fff;
+        --black-color: #000;
+        --input-border-color: #e3e4e6;
+        --transition-3s: 0.3s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--black-color);
+        transition: var(--transition-3s);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      body {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        min-height: 100vh;
+        background-color: var(--background-color);
+        padding-right: 150px;
+      }
+
+      .wrapper {
+        position: relative;
+        width: 480px;
+        height: auto;
+        background-color: var(--white-color);
+        border-radius: 15px;
+        padding: 130px 40px 64px;
+        border: 1px solid var(--input-border-color);
+        box-shadow: 0 8px 15px var(--shadow-color);
+        transition: var(--transition-3s);
+        overflow: hidden;
+      }
+
+      .form-header {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 180px;
+        height: 80px;
+        background-color: var(--primary-color);
+        border-radius: 0 0 20px 20px;
+        transform: translateX(-50%);
+      }
+
+      .form-header::before,
+      .form-header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 40px;
+        height: 40px;
+      }
+
+      .form-header::before {
+        left: -40px;
+        border-top-right-radius: 50%;
+        box-shadow: 20px 0 0 var(--primary-color);
+      }
+
+      .form-header::after {
+        right: -40px;
+        border-top-left-radius: 50%;
+        box-shadow: -20px 0 0 var(--primary-color);
+      }
+
+      .titles {
+        position: relative;
+      }
+
+      .title-login,
+      .title-register {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--white-color);
+        font-size: 20px;
+        transition: var(--transition-3s);
+      }
+
+      .title-register {
+        top: 50px;
+      }
+
+      .otp-form {
+        position: relative;
+      }
+
+      .input-box {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+      }
+
+      .input-field {
+        width: 100%;
+        height: 55px;
+        font-size: 16px;
+        background: transparent;
+        color: var(--black-color);
+        padding: 0 20px;
+        border: 1px solid var(--input-border-color);
+        border-radius: 30px;
+        outline: none;
+        transition: var(--transition-3s);
+      }
+
+      .input-field:focus {
+        border: 1px solid var(--primary-color);
+      }
+
+      .label {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        color: var(--secondary-color);
+        transition: 0.2s;
+        cursor: text;
+      }
+
+      .input-field:focus ~ .label,
+      .input-field:valid ~ .label {
+        top: 0;
+        font-size: 14px;
+        background-color: var(--white-color);
+        color: var(--primary-color);
+        padding: 0 10px;
+      }
+
+      .input-field:valid ~ .label {
+        color: var(--secondary-color);
+      }
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .btn-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: var(--transition-3s);
+      }
+
+      .btn-submit:hover {
+        gap: 15px;
+      }
+
+      .btn-submit i {
+        font-size: 20px;
+      }
+
+      .switch-form {
+        text-align: center;
+      }
+
+      .switch-form a {
+        font-weight: 500;
+      }
+
+      @media only screen and (max-width: 564px) {
+        body {
+          justify-content: center;
+          padding-right: 0;
+        }
+        .wrapper {
+          margin: 20px;
+          width: 90%;
+          padding: 100px 20px 40px;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="flash-container">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="flash-message flash-{{ category }}">
+        <span class="flash-text">{{ message }}</span>
+        <button
+          class="flash-close"
+          onclick="this.parentElement.classList.add('hide')"
+        >
+          &times;
+        </button>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+
+    <div class="wrapper">
+      <!-- Form Header -->
+      <div class="form-header">
+        <div class="titles">
+          <div class="title-login">Verify OTP</div>
+        </div>
+      </div>
+
+      <!-- OTP Form -->
+      <!-- Action and href attributes are placeholders -->
+      <form action="#" method="POST" autocomplete="off" class="otp-form">
+        <div class="input-box">
+          <!-- The label needs to be after the input for the floating animation to work -->
+          <input type="text" class="input-field" id="otp" name="otp" required />
+          <label for="otp" class="label"
+            >Enter the OTP sent to your email</label
+          >
+          <i class="bx bx-key icon"></i>
+        </div>
+
+        <div class="input-box">
+          <button type="submit" class="btn-submit">
+            Verify OTP <i class="bx bx-check-circle"></i>
+          </button>
+        </div>
+
+        <div class="switch-form">
+          <span>Didn't receive OTP? <a href="{{ url_for('auth.resend_otp') }}">Resend</a></span>
+        </div>
+        <div class="switch-form">
+          <span>
+            Login with your password - 
+            <a href="{{ url_for('auth.login') }}">Go to Login</a>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const toasts = document.querySelectorAll(".flash-message");
+
+        toasts.forEach((toast, i) => {
+          // close button
+          toast.querySelector(".flash-close")?.addEventListener("click", () => {
+            toast.classList.add("hide");
+            setTimeout(() => toast.remove(), 280);
+          });
+
+          // auto-hide after 3s
+          setTimeout(() => {
+            if (!toast.classList.contains("hide")) {
+              toast.classList.add("hide");
+              setTimeout(() => toast.remove(), 280);
+            }
+          }, 3000 + i * 120); // stagger so multiples don't vanish at once
+        });
+      });
+    </script>
+  </body>
+</html>

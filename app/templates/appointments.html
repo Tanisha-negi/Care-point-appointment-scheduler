@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Appointments | CarePoint{% endblock %}
+{% block content %}
+
+<section class="appointment">
+  <h1>Appointment History</h1>
+
+  <div class="history-container">
+    {% if appointments and appointments|length > 0 %}
+      <table>
+        <thead>
+          <tr>
+            <th>Doctor</th>
+            <th>Specialty</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Fee</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for appt in appointments %}
+          <tr>
+            <td>{{ appt.doctor.name }}</td>
+            <td>{{ appt.doctor.speciality }}</td>
+            <td>{{ appt.date.strftime('%d %b %Y') if appt.date else '' }}</td>
+            <td>{{ appt.time.strftime('%I:%M %p') if appt.time else '' }}</td>
+            <td>₹{{ appt.doctor.fee }}</td>
+            <td>
+              {% if appt.status.lower() == "cancelled" %}
+                <span class="status cancelled">Cancelled</span>
+              {% elif appt.date and appt.time and (appt.date < current_date or (appt.date == current_date and appt.time < current_time)) %}
+                <span class="status completed">Completed</span>
+              {% else %}
+                <span class="status upcoming">Upcoming</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if appt.status.lower() == "upcoming" and (not (appt.date and appt.time and (appt.date < current_date or (appt.date == current_date and appt.time < current_time)))) %}
+                <!-- Cancel button -->
+                <button 
+                  class="cancel-btn" 
+                  onclick="confirmCancel('{{ appt.id }}')">
+                  Cancel
+                </button>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="no-appointment">No appointments to show</p>
+    {% endif %}
+  </div>
+
+  <!-- Hidden cancel form -->
+  <form id="cancelForm" method="POST" style="display:none;"></form>
+</section>
+
+<script>
+function confirmCancel(apptId) {
+  if (confirm("Do you really want to cancel this appointment?")) {
+    const form = document.getElementById("cancelForm");
+    form.action = `/cancel/${apptId}`;
+    form.submit();
+  }
+}
+</script>
+
+{% endblock %}

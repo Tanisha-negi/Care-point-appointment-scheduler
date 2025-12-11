@@ -1,0 +1,584 @@
+{% extends "base.html" %} 
+{% block title %}FAQ | CarePoint{% endblock %} {%
+block content %}
+
+<section class="Faqs">
+  <!-- Hero -->
+  <div class="faq-hero">
+    <h1>How can we help you?</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search FAQs..." />
+    </div>
+  </div>
+
+  <!-- Categories (Tabs) -->
+
+  <div class="categories-heading">
+    <h2 id="categories-heading">Find Answers by Topic</h2>
+  </div>
+
+  <div class="categories">
+    <div class="category active" data-target="general">General</div>
+    <div class="category" data-target="account">Account</div>
+    <div class="category" data-target="billing">Billing</div>
+    <div class="category" data-target="appointments">Appointments</div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section" id="faqContainer">
+    <!-- General -->
+    <div class="faq-category active" id="general">
+      <div class="faq-item">
+        <h3>
+          What is this doctor appointment scheduler and how does it work?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Our doctor appointment scheduler is an online platform that allows
+          patients to easily book, reschedule, or cancel appointments with
+          healthcare professionals. Instead of calling the clinic or waiting in
+          line, patients can search for doctors by specialty, location, or
+          availability and confirm appointments within a few clicks. Once a
+          booking is made, both the patient and doctor receive confirmation and
+          reminders to reduce the chances of missed appointments.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Do I need to create an account to book an appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, patients are required to create an account before booking an
+          appointment. This ensures that your medical history, past
+          appointments, and future bookings are safely stored in one place.
+          Having an account also allows you to manage multiple appointments,
+          receive reminders, and access secure medical notes from your doctor.
+          Signing up is free and only requires basic details like your name,
+          email, and phone number.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I book appointments for family members through my account??
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Absolutely. Our system supports “Family Profiles,” which means you can
+          manage appointments not only for yourself but also for your children,
+          parents, or other dependents. Each profile can be linked under one
+          account, so you don’t need to create separate logins. This makes it
+          convenient to schedule multiple visits without confusion.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How do I search for the right doctor?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          You can search for doctors using filters such as specialty (e.g.,
+          cardiologist, dentist, dermatologist), location, consultation type
+          (online or in-clinic), and availability. Each doctor’s profile
+          contains detailed information including qualifications, years of
+          experience, clinic address, and patient reviews. This helps you make
+          an informed decision before confirming an appointment.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Are the doctors listed verified and qualified?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, every doctor listed on our platform goes through a strict
+          verification process. We verify their medical license, registration
+          with relevant medical councils, and credentials before they are
+          allowed to offer services on our platform. Patient safety and trust
+          are our top priorities, so you can be confident that all doctors are
+          genuine healthcare professionals.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What types of appointments can I book?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          You can book both in-clinic and online (video/phone) consultations
+          depending on the doctor’s availability. Online consultations are
+          especially useful for follow-ups, minor health concerns, or when
+          traveling. In-clinic visits are recommended for physical examinations
+          or treatments that cannot be done virtually. Each doctor clearly
+          mentions which types of appointments they offer.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Will I receive reminders for my appointments?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you will automatically receive reminders via email, SMS, or push
+          notifications (if you enable them). Reminders are usually sent 24
+          hours before and again 1–2 hours before the scheduled appointment.
+          This ensures you don’t miss your consultation. For online
+          consultations, you’ll also receive the video call link in your
+          reminder.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I cancel or reschedule an appointment after booking?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, our system is flexible and allows you to cancel or reschedule
+          appointments easily. However, the exact policy depends on the doctor’s
+          clinic. Some doctors allow free cancellations up to 24 hours before
+          the appointment, while others may have a cancellation fee. All
+          policies are clearly displayed before you confirm your booking so
+          there are no surprises later.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Is there a fee for using this scheduler?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Creating an account and browsing doctors is completely free. The only
+          cost involved is the consultation fee charged by the doctor, which you
+          will see clearly before confirming your appointment. Some clinics may
+          also offer packages, health plans, or discounts for online payments.
+          Our platform itself does not charge extra service fees to patients for
+          booking appointments.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How secure is my personal and medical information?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          We use advanced encryption and secure servers to store all your
+          personal and medical information. Only you and your chosen doctor can
+          access your medical records, and we never share your data with third
+          parties without your consent. Our platform is designed to comply with
+          healthcare privacy standards such as HIPAA (if applicable) to ensure
+          maximum confidentiality.
+        </div>
+      </div>
+    </div>
+
+    <!-- Account -->
+    <div class="faq-category" id="account">
+      <div class="faq-item">
+        <h3>
+          How do I create an account on the platform?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          To create an account, click on the “Sign Up” button on the homepage.
+          You’ll be asked to provide your basic details such as name, email,
+          phone number, and password. After filling in the form, you’ll receive
+          a verification email or SMS to confirm your identity. Once verified,
+          your account will be active, and you can immediately start booking
+          appointments.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Why do I need to verify my email or phone number?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Email or phone verification ensures that your account is secure and
+          that you can receive important updates about your appointments.
+          Verification also prevents fake accounts from being created, which
+          helps keep the platform safe for both doctors and patients. Without
+          verification, you may not be able to book or manage appointments.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          I forgot my password. How can I reset it?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If you forget your password, simply click on the “Forgot Password”
+          link on the login page. You’ll be asked to enter your registered email
+          or phone number. A One-Time Password (OTP) or reset link will be sent
+          to you. Follow the instructions to set a new password and regain
+          access to your account. Make sure to choose a strong password for
+          better security.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I change my registered email address or phone number?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you can update your email or phone number by going to the
+          “Account Settings” section. For security reasons, you may be asked to
+          re-enter your password or confirm the new contact details with an OTP.
+          Once updated, all future communications will be sent to your new email
+          or phone number.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How do I update my personal details such as name, age, or address?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          You can easily edit your profile by visiting the “Profile Settings”
+          section in your account. There, you can update details like your full
+          name, date of birth, gender, and address. Keeping your profile updated
+          ensures that doctors have accurate information during consultations
+          and helps avoid confusion in your medical records.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I create multiple accounts with the same email or phone number?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          No, each email address and phone number can only be linked to one
+          account. This policy helps maintain the integrity and security of
+          patient data. If you want to manage appointments for multiple family
+          members, you can use the “Family Profile” feature instead of creating
+          multiple accounts.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What should I do if I suspect someone else is using my account?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If you believe your account has been compromised, immediately change
+          your password from the “Security Settings” section. If you cannot log
+          in, use the password reset option. Additionally, contact our support
+          team to secure your account and investigate any unauthorized activity.
+          We also recommend enabling two-factor authentication (if available)
+          for extra protection.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Is my account information shared with doctors or third parties?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Your personal information is kept private and secure. Only the doctors
+          you book appointments with can access relevant details, such as your
+          medical history, to provide accurate care. We do not share your data
+          with advertisers or third-party companies without your explicit
+          consent. Our platform is designed to comply with privacy regulations
+          to keep your information safe.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I delete my account if I no longer wish to use the service?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you can permanently delete your account from the “Account
+          Settings” section. Deleting your account will remove all personal
+          data, booking history, and linked profiles from our system. However,
+          some medical records may be retained as required by law. Once deleted,
+          your account cannot be restored, and you’ll need to sign up again if
+          you wish to use the service in the future.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How do I keep my account secure?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          To keep your account secure, always use a strong password that
+          includes letters, numbers, and special characters. Avoid sharing your
+          login details with anyone, and always log out if you’re using a public
+          device. We also recommend enabling security features like OTP
+          verification for sensitive actions (password reset, profile changes)
+          to protect your data.
+        </div>
+      </div>
+    </div>
+
+    <!-- Billing -->
+    <div class="faq-category" id="billing">
+      <div class="faq-item">
+        <h3>
+          What payment methods are accepted?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          We accept multiple payment methods, including credit/debit cards, net
+          banking, UPI, and popular digital wallets. Some clinics may also allow
+          cash payments at the time of your in-clinic visit. If you are booking
+          an online consultation, digital payment is required to confirm your
+          appointment.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Do I need to pay before booking an appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          In most cases, yes. Pre-payment secures your slot with the doctor and
+          prevents last-minute cancellations. However, some doctors allow “Pay
+          at Clinic” for in-person visits. This option will be clearly shown
+          before you confirm your appointment so you can choose the method that
+          suits you.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Are there any hidden fees or extra charges?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          No, we are transparent about all charges. The amount displayed on the
+          booking page includes the doctor’s consultation fee and any applicable
+          service charges. There are no hidden fees. If a doctor charges
+          additional fees for procedures or tests during an in-clinic visit, you
+          will be informed directly at the clinic.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Will I get an invoice or receipt after payment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, once your payment is completed, a digital receipt is
+          automatically generated and sent to your registered email. You can
+          also download invoices from the “Billing” section in your account.
+          Receipts contain details such as doctor’s name, consultation type,
+          amount paid, payment method, and transaction ID.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I cancel my appointment and get a refund?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you can cancel your appointment and request a refund if it falls
+          within the doctor’s cancellation policy. Most doctors allow free
+          cancellations up to 24 hours before the appointment. Refunds are
+          processed to the original payment method within 5–7 business days,
+          depending on your bank or wallet provider.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What happens if the doctor cancels my appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If the doctor cancels, you will receive a full refund without any
+          deductions. In addition, you may be given the option to reschedule
+          with the same doctor or choose another doctor without paying again. We
+          ensure that patients are not inconvenienced due to doctor-side
+          cancellations.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I reschedule an appointment without paying again?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, rescheduling is usually free as long as you follow the clinic’s
+          policy. If you reschedule within the allowed time frame (e.g., 24
+          hours before the original slot), your payment will be carried over to
+          the new appointment. If you miss this window, you may have to rebook
+          and pay again.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How secure are my payment details?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          We use industry-standard encryption and payment gateways to process
+          all transactions. Your card or bank details are never stored on our
+          servers. Transactions comply with PCI-DSS security standards to ensure
+          maximum protection of sensitive financial information.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Do you support health insurance or corporate health plans?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Some doctors and clinics on our platform accept insurance claims or
+          are tied up with corporate health plans. If eligible, you can select
+          the “Pay with Insurance” option at checkout. You may need to upload
+          your insurance details and carry your card during the visit.
+          Availability of insurance support depends on the doctor’s clinic.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What should I do if my payment fails but money is deducted from my
+          account?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If a payment fails but your bank account shows a deduction, don’t
+          worry. Such transactions are automatically reversed within 5–7 working
+          days by your bank. If you don’t receive a refund within that period,
+          you can contact our support team with your transaction ID, and we’ll
+          coordinate with the payment gateway to resolve the issue quickly.
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments -->
+    <div class="faq-category" id="appointments">
+      <div class="faq-item">
+        <h3>
+          How do I book an appointment with a doctor?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          To book an appointment, log in to your account and use the search bar
+          to find a doctor by name, specialty, or location. Once you select a
+          doctor, choose your preferred time slot from their available schedule
+          and confirm by making the required payment (if applicable). You’ll
+          receive a confirmation notification and email instantly.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I choose between online and in-clinic appointments?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, most doctors on the platform provide both online consultations
+          and in-clinic visits. When booking, you’ll see two options: “Video
+          Consultation” and “In-Clinic Visit.” Simply select the one that suits
+          you best. If you choose online, you’ll receive a secure video link; if
+          you choose in-clinic, your appointment details will include the
+          clinic’s address.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What information do I need to provide while booking?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          While booking, you’ll need to provide your name, age, gender, contact
+          details, and any relevant medical history. This helps the doctor
+          prepare for your consultation. For online consultations, ensure that
+          your device has a working camera, microphone, and a stable internet
+          connection.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How do I reschedule an appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          You can reschedule an appointment by going to the “My Appointments”
+          section in your account. Choose the appointment you want to change,
+          then select a new date and time from the doctor’s available slots. If
+          rescheduling is within the allowed time frame (usually 24 hours before
+          the consultation), no extra charge will apply.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I cancel my appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you can cancel appointments as long as it falls within the
+          doctor’s cancellation policy. Simply go to “My Appointments,” select
+          the booking, and click “Cancel.” You’ll be informed about the refund
+          eligibility (if any) before confirming the cancellation. Refunds are
+          typically processed within 5–7 working days.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What happens if I miss my appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If you miss your appointment without canceling in advance, the
+          consultation fee may not be refunded. However, you can still rebook
+          with the same doctor if slots are available. Some doctors may offer
+          partial refunds or free rescheduling in exceptional cases, but this
+          depends on their policy.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How will I be reminded of my upcoming appointment?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          You’ll receive reminders via SMS, email, and app notifications (if
+          enabled) 24 hours before and again 1 hour before your scheduled
+          appointment. For online consultations, you’ll also receive a direct
+          link to join the video call. These reminders help ensure you don’t
+          miss your consultation.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          What should I do if the doctor is late or unavailable?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          If the doctor is delayed, you’ll be notified of the revised time. If
+          the doctor becomes unavailable, your appointment will be automatically
+          rescheduled or refunded. You’ll also have the option to book with
+          another doctor at no extra cost if you prefer.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          Can I book appointments for my family members?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          Yes, you can book appointments for family members by adding them under
+          the “Family Profile” section of your account. While booking, simply
+          select which family member the appointment is for. This feature is
+          especially useful for parents booking for children or caregivers
+          booking for elderly family members.
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>
+          How many appointments can I book at once?
+          <span class="toggle-icon">+</span>
+        </h3>
+        <div class="answer">
+          There’s no strict limit on the number of appointments you can book.
+          You can schedule multiple appointments for yourself and your family
+          members as long as they don’t overlap. However, each appointment needs
+          to be confirmed individually to avoid confusion and ensure accuracy in
+          the doctor’s schedule.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

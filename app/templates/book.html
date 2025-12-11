@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Book Appointment | CarePoint{% endblock %}
+
+{% block content %}
+<section class="booking">
+
+  <div style="background-color: #ffebcc; padding: 10px; border: 1px solid #ffa500; text-align: center; font-weight: bold;">
+  ⚠️ Notice: This is a demo website. Appointments booked here are <strong>not real</strong> and will not be processed.
+  </div>
+
+  
+
+  <div class="book-container">
+    <!-- Doctor Info -->
+    <div class="doctor-section">
+      <img src="{{ doctor.image_url }}" alt="Doctor Photo" />
+      <div class="doctor-info">
+        <h2>{{ doctor.name }}</h2>
+        <p><strong>Speciality:</strong> {{ doctor.speciality }}</p>
+        <p><strong>About:</strong> {{ doctor.description }}</p>
+        <p><strong>Experience:</strong> {{ doctor.experience }}+ years</p>
+        {% if doctor.fee %}
+        <p><strong>Appointment Fee:</strong> ₹{{ doctor.fee }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <form method="POST" action="{{ url_for('routes.book_doctor', doctor_id=doctor.id) }}" id="bookingForm">
+      <h3 class="select-date">Select Date</h3>
+      <div class="days" id="day-container">
+        <!-- JS will populate the next 6 days here -->
+      </div>
+
+      <h3 class="select-time">Select Time</h3>
+      <div class="time-slots" id="time-container">
+        <!-- JS will populate available times -->
+      </div>
+
+      <label for="phone_number">Phone Number:</label>
+      <input
+        type="text"
+        id="phone_number"
+        name="phone_number"
+        placeholder="Enter your phone number"
+        required
+      />
+
+      <!-- hidden inputs to send values to backend -->
+      <input type="hidden" name="date" id="selectedDate" required>
+      <input type="hidden" name="time" id="selectedTime" required>
+
+      <button type="submit" class="book-btn">Book Appointment</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  // ---------- Generate Next 6 Days (Mon-Sat only) ----------
+  const dayContainer = document.getElementById("day-container");
+  const today = new Date();
+
+  let addedDays = 0;
+  let currentDate = new Date(today);
+
+  while (addedDays < 6) {
+    currentDate.setDate(currentDate.getDate() + 1); // move to next day
+    if (currentDate.getDay() === 0) continue; // skip Sundays
+
+    const dayName = currentDate.toLocaleDateString("en-US", { weekday: "short" });
+    const dateNum = currentDate.getDate();
+    const month = currentDate.toLocaleDateString("en-US", { month: "short" });
+
+    const div = document.createElement("div");
+    div.classList.add("day-tile");
+    div.textContent = `${dayName} ${dateNum} ${month}`;
+    div.dataset.date = currentDate.toISOString().split("T")[0];
+
+    div.addEventListener("click", () => {
+      document.querySelectorAll(".day-tile").forEach(d => d.classList.remove("active"));
+      div.classList.add("active");
+      document.getElementById("selectedDate").value = div.dataset.date;
+    });
+
+    dayContainer.appendChild(div);
+    addedDays++;
+  }
+
+  // ---------- Time Slots ----------
+  const timeSlots = [
+    "09:00 AM", "10:00 AM", "11:00 AM",
+    "12:00 PM", "02:00 PM", "03:00 PM",
+    "04:00 PM", "05:00 PM"
+  ];
+
+  const timeContainer = document.getElementById("time-container");
+
+  timeSlots.forEach(slot => {
+    const div = document.createElement("div");
+    div.classList.add("time-tile");
+    div.textContent = slot;
+    div.dataset.time = slot;
+
+    div.addEventListener("click", () => {
+      document.querySelectorAll(".time-tile").forEach(t => t.classList.remove("active"));
+      div.classList.add("active");
+      document.getElementById("selectedTime").value = slot;
+    });
+
+    timeContainer.appendChild(div);
+  });
+</script>
+
+<style>
+  .days, .time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .day-tile, .time-tile {
+    padding: 12px 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f9f9f9;
+    transition: 0.3s;
+  }
+  .day-tile.active, .time-tile.active {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+</style>
+{% endblock %}
+
+

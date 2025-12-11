@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block title %}contact | CarePoint{% endblock %} {%
+block content %}
+
+<div class="container contact-section">
+  <!-- New Heading -->
+  <div class="contact-heading">
+    <h1>Contact Us</h1>
+    <p>
+      We’d love to hear from you! Reach out to us via phone, email, or the form
+      below.
+    </p>
+  </div>
+
+  <!-- Contact Content -->
+  <main class="row">
+    <section class="col left">
+      <div class="contact-title">
+        <h2>Get in Touch</h2>
+      </div>
+
+      <div class="contact-information">
+        <div class="icon-group">
+          <div class="icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div class="details">
+            <span>Phone</span>
+            <span>+91 98765 43210</span>
+          </div>
+        </div>
+
+        <div class="icon-group">
+          <div class="icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="details">
+            <span>Email</span>
+            <span>care@carepoint.com</span>
+          </div>
+        </div>
+
+        <div class="icon-group">
+          <div class="icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="details">
+            <span>Location</span>
+            <span>123 Health Avenue, </span>
+            <span>Green Park, New Delhi,</span>
+            <span>India - 110016</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col right">
+      <form action="" class="message-form">
+        <div class="input-group half-width">
+          <input type="text" name="" required="required" />
+          <label for="">Your Name</label>
+        </div>
+
+        <div class="input-group half-width">
+          <input type="email" name="" required="required" />
+          <label for="">Email</label>
+        </div>
+
+        <div class="input-group full-width">
+          <input type="text" name="" required="required" />
+          <label for="">Subject</label>
+        </div>
+
+        <div class="input-group full-width">
+          <textarea required="required"></textarea>
+          <label for="">Your message</label>
+        </div>
+
+        <div class="input-group full-width">
+          <button>Send message</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+
+{% endblock %}
