@@ -3,7 +3,8 @@ title: CarePoint
 emoji: 🏥
 colorFrom: blue
 colorTo: green
-sdk: static  # Or streamlit / docker
+sdk: gradio
+app_file: app.py
 pinned: false
 ---
 
