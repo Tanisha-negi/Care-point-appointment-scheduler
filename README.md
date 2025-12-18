@@ -1,3 +1,12 @@
+---
+title: CarePoint
+emoji: 🏥
+colorFrom: blue
+colorTo: green
+sdk: static  # Or streamlit / docker
+pinned: false
+---
+
 # 🏥 Care Point: Doctor Appointment Scheduler
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](YOUR_VERCEL_OR_NETLIFY_LINK)
