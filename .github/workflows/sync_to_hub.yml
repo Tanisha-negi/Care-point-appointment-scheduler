@@ -10,4 +10,4 @@ jobs:
       - name: Push to Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://tanishanegi:$HF_TOKEN@huggingface.co/spaces/tanishanegi/CarePoint main
+        run: git push --force https://tanishanegi:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/tanishanegi/CarePoint main
